@@ -32,6 +32,7 @@ Therefore, regularly taking a backup of the Jenkins server is essential for main
    - Jenkins writes all files to the `/var/lib/jenkins` folder. This folder needs to be backed up:
      ```bash
      tar -zvcf jenkins-backup-<date>.tar.gz /var/lib/jenkins
+     tar -zvcf jenkins-backup-$(date +%Y-%m-%d).tar.gz --exclude='/var/lib/jenkins/workspace' /var/lib/jenkins
      ```
 
 3. **Copy Backup to S3 Bucket**
